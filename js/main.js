@@ -4,11 +4,8 @@
 let outputEl = document.getElementById("output");
 
 // Load Color Data
-let colorData;
-
-fetch("color-data.json")
-  .then((rawData) => rawData.json())
-  .then((data) => (colorData = data));
+let colorData = await readJSON("data/color-data.json");
+console.log(colorData); // Verify Color Data
 
 // Event Listener on Go Button
 document.getElementById("go-btn").addEventListener("click", goBtnClicked);
