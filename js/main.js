@@ -39,18 +39,21 @@ function allColors() {
 }
 
 function brightColors() {
-  // Display Name and Brightness of All Colors with a Brightness of 200 and Higher
-  outputEl.innerHTML = "<h3>Display Bright Colors</h3>";
-
   for (let i = 0; i < colorData.length; i++) {
-    if (colorData.brightness >= 200) {
-      outputEl.innerHTML = `<br> ${colorData[i].name} + ${colorData[i].brightness}`;
+    if (colorData[i].brightness >= 200) {
+      outputEl.innerHTML += `<br> ${colorData[i].name} + ${colorData[i].brightness}`;
     }
   }
 }
 function redPinkFamilies() {
   // Count Colors in Red/Pink Families
-  outputEl.innerHTML = "<h3>Count Red/Pink Family Colors</h3>";
+  for (let i = 0; i < colorData.length; i++) {
+    if (colorData[i].family === "Red") {
+      outputEl.innerHTML += `<br> ${colorData[i].name} + ${colorData[i].family}`;
+    } else if (colorData[i].family === "Pink") {
+      outputEl.innerHTML += `<br> ${colorData[i].name} + ${colorData[i].family}`;
+    }
+  }
 }
 
 function familySearch() {
