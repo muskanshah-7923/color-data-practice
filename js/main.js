@@ -59,24 +59,31 @@ function redPinkFamilies() {
       outputEl.innerHTML += `<br> ${colorData[i].name} + ${colorData[i].family}`;
     }
   }
-outputEl.innerHTML += `<br>There are ${redCount} red and ${pinkCount} pink colors.`;
+  outputEl.innerHTML += `<br>There are ${redCount} red and ${pinkCount} pink colors.`;
 }
-
 
 function familySearch() {
   // Prompt the user for a color family
-  let userFamilyName = prompt("Enter a color family:");
+  let familyName = prompt("Enter a color family:");
   let count = 0;
   for (let i = 0; i < colorData.length; i++) {
-    if (colorData[i].family === userFamilyName) {
+    if (colorData[i].family === familyName) {
       outputEl.innerHTML += `<br>${colorData[i].name} - ${colorData[i].family}`;
       count++;
     }
   }
-  outputEl.innerHTML += `<br>Number of colors found in the ${userFamilyName} family: ${count}`;
+  outputEl.innerHTML += `<br>Number of colors found in the ${familyName} family: ${count}`;
 }
 
 function startLetterSearch() {
-  // Display Name of all Colors that Match a User Provided Starting Letter. Also Output a Count of Colors Found.
-  outputEl.innerHTML = "<h3>Start Letter Search</h3>";
+  let letter = prompt("Enter a letter");
+  let count = 0;
+
+  for (let i = 0; i < colorData.length; i++) {
+    if (colorData[i].name[0] === letter) {
+      outputEl.innerHTML += `<br> ${colorData[i].name}`;
+      count++;
+    }
+  }
+  outputEl.innerHTML += `<br> Total amount of colors are ${count}`;
 }
