@@ -45,20 +45,35 @@ function brightColors() {
     }
   }
 }
+
 function redPinkFamilies() {
   // Count Colors in Red/Pink Families
+  let redCount = 0;
+  let pinkCount = 0;
   for (let i = 0; i < colorData.length; i++) {
     if (colorData[i].family === "Red") {
+      redCount++;
       outputEl.innerHTML += `<br> ${colorData[i].name} + ${colorData[i].family}`;
     } else if (colorData[i].family === "Pink") {
+      pinkCount++;
       outputEl.innerHTML += `<br> ${colorData[i].name} + ${colorData[i].family}`;
     }
   }
+outputEl.innerHTML += `<br>There are ${redCount} red and ${pinkCount} pink colors.`;
 }
 
+
 function familySearch() {
-  // Display Name and Family of all Colors that Match a User Provided Family Name. Also Output a Count of Colors Found.
-  outputEl.innerHTML = "<h3>Family Search</h3>";
+  // Prompt the user for a color family
+  let userFamilyName = prompt("Enter a color family:");
+  let count = 0;
+  for (let i = 0; i < colorData.length; i++) {
+    if (colorData[i].family === userFamilyName) {
+      outputEl.innerHTML += `<br>${colorData[i].name} - ${colorData[i].family}`;
+      count++;
+    }
+  }
+  outputEl.innerHTML += `<br>Number of colors found in the ${userFamilyName} family: ${count}`;
 }
 
 function startLetterSearch() {
